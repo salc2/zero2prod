@@ -23,8 +23,8 @@ APP_USER_PWD="${APP_USER_PWD:=secret}"
 APP_DB_NAME="${APP_DB_NAME:=newsletter}"
 
 if [[ -z "${SKIP_DOCKER}" ]]
-    then
-
+then
+    echo "no skiping"
     # Launch postgres using Docker
     CONTAINER_NAME="postgres_z2p"
     docker run \
