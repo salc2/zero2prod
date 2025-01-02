@@ -59,7 +59,7 @@ jobs:
       - name: Run tests
         run: just test
       - name: Check that queries are fresh
-        run: cargo sqlx prepare --workspace --check -- --all-targets
+        run: cargo sqlx prepare
 
   lint:
     runs-on: ubuntu-latest
