@@ -60,8 +60,12 @@ jobs:
         run: just test
       - name: Check that queries are fresh
         run: cargo sqlx prepare
+      with:
+        name: target
+        path: ./target
 
   lint:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -73,8 +77,12 @@ jobs:
 
       - name: Enforce formatting
         run: just lint
+        with:
+          name: target
+          path: ./target
 
   coverage:
+    needs: test
     name: Code coverage
     runs-on: ubuntu-latest
     steps:
@@ -94,3 +102,6 @@ jobs:
         with:
           name: "Coverage report"
           path: coverage/
+        with:
+          name: target
+          path: ./target
