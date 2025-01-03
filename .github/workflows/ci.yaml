@@ -58,6 +58,7 @@ jobs:
         run: SKIP_DOCKER=true ./scripts/init_db.sh
       - name: Run tests
         run: just test
+      - name: artifact
         uses: actions/upload-artifact@v2
         with:
           name: target
@@ -79,6 +80,7 @@ jobs:
 
       - name: Enforce formatting
         run: just lint
+      - name: artifact
         uses: actions/download-artifact@v2
         with:
           name: target
