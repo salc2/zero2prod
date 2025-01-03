@@ -58,11 +58,12 @@ jobs:
         run: SKIP_DOCKER=true ./scripts/init_db.sh
       - name: Run tests
         run: just test
-      - name: Check that queries are fresh
-        run: cargo sqlx prepare
         with:
           name: target
           path: ./target
+          retention-days: 1
+      - name: Check that queries are fresh
+        run: cargo sqlx prepare
 
   lint:
     needs: test
