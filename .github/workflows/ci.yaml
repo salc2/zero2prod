@@ -60,9 +60,9 @@ jobs:
         run: just test
       - name: Check that queries are fresh
         run: cargo sqlx prepare
-      with:
-        name: target
-        path: ./target
+        with:
+          name: target
+          path: ./target
 
   lint:
     needs: test
