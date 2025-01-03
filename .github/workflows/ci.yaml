@@ -82,7 +82,6 @@ jobs:
           path: ./target
 
   coverage:
-    needs: test
     name: Code coverage
     runs-on: ubuntu-latest
     steps:
@@ -102,6 +101,3 @@ jobs:
         with:
           name: "Coverage report"
           path: coverage/
-        with:
-          name: target
-          path: ./target
